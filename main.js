@@ -11,7 +11,27 @@
 // MILESTONE 1:
 // Iniziamo implementando il programma senza alcuna estetica: usando esclusivamente due input e un bottone (non stilizzati), realizziamo le specifiche scritte sopra. La risposta finale (o output) sarà anch’essa da scrivere in console. 
 
+const km = parseFloat(prompt("Quanti chilometri vuoi percorrere?"));
+const eta = parseInt(prompt("Quanti anni hai?"));
 
+// Prezzo base
+const prezzoBase = km * 0.21;
+let sconto = 0;
+let prezzoFinale = prezzoBase;
+
+// Calcolo sconto
+if (eta < 18) {
+  sconto = 0.2;
+  prezzoFinale = prezzoBase * (1 - sconto);
+} else if (eta > 65) {
+  sconto = 0.4;
+  prezzoFinale = prezzoBase * (1 - sconto);
+}
+
+// Stampato in console
+console.log("Prezzo base:", prezzoBase.toFixed(2) + "€");
+console.log("Sconto applicato:", sconto * 100 + "%");
+console.log("Prezzo finale:", prezzoFinale.toFixed(2) + "€");
 
 // MILESTONE 2:
 // Solo una volta che il milestone 1 sarà completo e funzionante allora realizzeremo un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo. 
